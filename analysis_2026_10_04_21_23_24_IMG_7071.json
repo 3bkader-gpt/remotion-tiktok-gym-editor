@@ -1,0 +1,98 @@
+{
+  "video_summary": "A lifter performs a set of overhead cable triceps extensions using an EZ-bar attachment in a gym, completing 8 clean reps before re-racking the weight and walking off.",
+  "lifter_profile": {
+    "primary_lifter_appearance": "Short dark hair, navy blue fitted athletic t-shirt, dark blue track pants, and yellow sandals.",
+    "other_people_visible": [
+      "Man wearing a white baseball cap, black t-shirt, and white pants standing next to the bench from 00:01 to 00:21",
+      "Man in a black t-shirt with '92' on the back in the background from 00:17 to 00:28",
+      "Man in a white t-shirt in the background from 00:21 to 00:28"
+    ]
+  },
+  "exercise_details": {
+    "name_english": "Overhead Cable Triceps Extension",
+    "name_arabic": "ترايسبس كابل خلف الرأس",
+    "machine_or_equipment": "Cable machine with EZ-bar attachment",
+    "targeted_muscle": "Triceps Brachii / عضلة الترايسبس"
+  },
+  "timeline": {
+    "setup_phase": {
+      "start_seconds": 1,
+      "end_seconds": 2,
+      "description": "Getting into a bent-over stance with the cable attached to the EZ-bar."
+    },
+    "workout_set": {
+      "start_seconds": 2,
+      "end_seconds": 20,
+      "total_reps_completed": 8,
+      "reps": [
+        {
+          "rep_number": 1,
+          "start_seconds": 2,
+          "peak_contraction_seconds": 4,
+          "end_seconds": 5,
+          "quality": "clean"
+        },
+        {
+          "rep_number": 2,
+          "start_seconds": 5,
+          "peak_contraction_seconds": 7,
+          "end_seconds": 8,
+          "quality": "clean"
+        },
+        {
+          "rep_number": 3,
+          "start_seconds": 8,
+          "peak_contraction_seconds": 9,
+          "end_seconds": 10,
+          "quality": "clean"
+        },
+        {
+          "rep_number": 4,
+          "start_seconds": 10,
+          "peak_contraction_seconds": 11,
+          "end_seconds": 12,
+          "quality": "clean"
+        },
+        {
+          "rep_number": 5,
+          "start_seconds": 12,
+          "peak_contraction_seconds": 13,
+          "end_seconds": 14,
+          "quality": "clean"
+        },
+        {
+          "rep_number": 6,
+          "start_seconds": 14,
+          "peak_contraction_seconds": 15,
+          "end_seconds": 16,
+          "quality": "clean"
+        },
+        {
+          "rep_number": 7,
+          "start_seconds": 16,
+          "peak_contraction_seconds": 17,
+          "end_seconds": 18,
+          "quality": "struggle"
+        },
+        {
+          "rep_number": 8,
+          "start_seconds": 18,
+          "peak_contraction_seconds": 19,
+          "end_seconds": 20,
+          "quality": "struggle"
+        }
+      ]
+    },
+    "exit_phase": {
+      "start_seconds": 20,
+      "end_seconds": 30,
+      "description": "Releasing the cable, stepping back, gesturing to his head, and walking out of frame."
+    }
+  },
+  "editing_recommendation": {
+    "best_clip_start_seconds": 2,
+    "best_clip_end_seconds": 20,
+    "recommended_duration_seconds": 18,
+    "notes_for_editor": "Clip from second 2 to 20 for full action. Add speed ramps on reps 6-8 (seconds 14-20) to highlight the peak tricep pump and muscular tension."
+  }
+}
