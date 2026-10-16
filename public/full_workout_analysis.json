@@ -1,0 +1,610 @@
+[
+  {
+    "file": "2026_10_04_21_08_54_IMG_7069.MOV",
+    "exercise_name": "Chest-Supported Machine Row",
+    "exercise_name_arabic": "سحب ظهر جهاز بدعم الصدر",
+    "targeted_muscle": "Latissimus Dorsi & Upper Back / عضلات الظهر العريضة والأعلى",
+    "machine_or_equipment": "Plate-Loaded Chest-Supported T-Bar / Machine Row",
+    "lifter_description": "Athletic male wearing a black compression t-shirt, light gray sweatpants, blue wrist lifting straps, and sandals.",
+    "setup_dead_time": {
+      "start_seconds": 0,
+      "end_seconds": 7,
+      "description": "Lifter stands on the machine platform, secures lifting straps around handles, and positions chest on pad."
+    },
+    "active_workout_set": {
+      "start_seconds": 7,
+      "end_seconds": 28.5,
+      "total_reps": 10,
+      "reps": [
+        {
+          "rep_number": 1,
+          "start_seconds": 7,
+          "peak_contraction_seconds": 8.5,
+          "end_seconds": 9.5
+        },
+        {
+          "rep_number": 2,
+          "start_seconds": 9.5,
+          "peak_contraction_seconds": 11,
+          "end_seconds": 12.5
+        },
+        {
+          "rep_number": 3,
+          "start_seconds": 12.5,
+          "peak_contraction_seconds": 13.5,
+          "end_seconds": 14.5
+        },
+        {
+          "rep_number": 4,
+          "start_seconds": 14.5,
+          "peak_contraction_seconds": 15.5,
+          "end_seconds": 16.5
+        },
+        {
+          "rep_number": 5,
+          "start_seconds": 16.5,
+          "peak_contraction_seconds": 17.5,
+          "end_seconds": 18.5
+        },
+        {
+          "rep_number": 6,
+          "start_seconds": 18.5,
+          "peak_contraction_seconds": 19.5,
+          "end_seconds": 20.5
+        },
+        {
+          "rep_number": 7,
+          "start_seconds": 20.5,
+          "peak_contraction_seconds": 21.5,
+          "end_seconds": 22.5
+        },
+        {
+          "rep_number": 8,
+          "start_seconds": 22.5,
+          "peak_contraction_seconds": 23.5,
+          "end_seconds": 24.5
+        },
+        {
+          "rep_number": 9,
+          "start_seconds": 24.5,
+          "peak_contraction_seconds": 25.5,
+          "end_seconds": 26.5
+        },
+        {
+          "rep_number": 10,
+          "start_seconds": 26.5,
+          "peak_contraction_seconds": 27.5,
+          "end_seconds": 28.5
+        }
+      ]
+    },
+    "exit_dead_time": {
+      "start_seconds": 28.5,
+      "end_seconds": 31,
+      "description": "Lifter lowers weight onto machine stops, releases grip straps, and smiles after finishing set."
+    },
+    "recommended_montage_slice": {
+      "start_seconds": 12.5,
+      "end_seconds": 20.5,
+      "duration_seconds": 8,
+      "reps_included": 4,
+      "notes": "Fast-paced middle section showing consistent rhythm and strong back contractions (Reps 3 through 6). Ideal for TikTok/Reels edit."
+    }
+  },
+  {
+    "file": "2026_10_04_21_23_24_IMG_7071.MOV",
+    "exercise_name": "Cable Straight-Arm Pulldown",
+    "exercise_name_arabic": "سحب ظهر ذراع مستقيمة على الكيبل",
+    "targeted_muscle": "Latissimus Dorsi (Lats) / عضلات الظهر العريضة",
+    "machine_or_equipment": "Cable Crossover Machine with EZ-Bar Attachment",
+    "lifter_description": "Athletic male wearing a dark blue athletic shirt with light blue sleeve accents, navy sweatpants, and yellow sandals.",
+    "setup_dead_time": {
+      "start_seconds": 0,
+      "end_seconds": 1.5,
+      "description": "Lifter grips the EZ-bar on the high pulley, hinges forward at the hips, and allows the cable to extend to the starting position."
+    },
+    "active_workout_set": {
+      "start_seconds": 1.5,
+      "end_seconds": 17,
+      "total_reps": 7,
+      "reps": [
+        {
+          "rep_number": 1,
+          "start_seconds": 1.5,
+          "peak_contraction_seconds": 2.5,
+          "end_seconds": 4
+        },
+        {
+          "rep_number": 2,
+          "start_seconds": 4,
+          "peak_contraction_seconds": 5,
+          "end_seconds": 6.5
+        },
+        {
+          "rep_number": 3,
+          "start_seconds": 6.5,
+          "peak_contraction_seconds": 7.5,
+          "end_seconds": 9
+        },
+        {
+          "rep_number": 4,
+          "start_seconds": 9,
+          "peak_contraction_seconds": 10,
+          "end_seconds": 11
+        },
+        {
+          "rep_number": 5,
+          "start_seconds": 11,
+          "peak_contraction_seconds": 12,
+          "end_seconds": 13
+        },
+        {
+          "rep_number": 6,
+          "start_seconds": 13,
+          "peak_contraction_seconds": 14,
+          "end_seconds": 15
+        },
+        {
+          "rep_number": 7,
+          "start_seconds": 15,
+          "peak_contraction_seconds": 16,
+          "end_seconds": 17
+        }
+      ]
+    },
+    "exit_dead_time": {
+      "start_seconds": 17,
+      "end_seconds": 28.5,
+      "description": "Lifter releases the bar attachment, stands up straight, adjusts his shirt, and walks away from the machine."
+    },
+    "recommended_montage_slice": {
+      "start_seconds": 4,
+      "end_seconds": 15,
+      "duration_seconds": 11,
+      "reps_included": 4,
+      "notes": "Captures clean, high-intensity middle reps with full lat engagement and smooth pacing for short-form social media clips."
+    }
+  },
+  {
+    "file": "2026_10_04_21_33_56_IMG_7073.MOV",
+    "exercise_name": "Plate-Loaded Seated Row",
+    "exercise_name_arabic": "سحب ظهر بالجهاز",
+    "targeted_muscle": "Lats & Upper Back (عضلات الظهر العريضة والعلويّة)",
+    "machine_or_equipment": "Plate-Loaded Seated Row Machine",
+    "lifter_description": "Male lifter in a navy blue t-shirt and grey sweatpants with short dark hair",
+    "setup_dead_time": {
+      "start_seconds": 0,
+      "end_seconds": 4,
+      "description": "Lifter sits down on the row machine, gets into position, and grips the handles."
+    },
+    "active_workout_set": {
+      "start_seconds": 4,
+      "end_seconds": 16,
+      "total_reps": 5,
+      "reps": [
+        {
+          "rep_number": 1,
+          "start_seconds": 4,
+          "peak_contraction_seconds": 5,
+          "end_seconds": 6
+        },
+        {
+          "rep_number": 2,
+          "start_seconds": 6.5,
+          "peak_contraction_seconds": 7.5,
+          "end_seconds": 8.5
+        },
+        {
+          "rep_number": 3,
+          "start_seconds": 9,
+          "peak_contraction_seconds": 10,
+          "end_seconds": 11
+        },
+        {
+          "rep_number": 4,
+          "start_seconds": 11.5,
+          "peak_contraction_seconds": 12.5,
+          "end_seconds": 13.5
+        },
+        {
+          "rep_number": 5,
+          "start_seconds": 14,
+          "peak_contraction_seconds": 15,
+          "end_seconds": 16
+        }
+      ]
+    },
+    "exit_dead_time": {
+      "start_seconds": 16,
+      "end_seconds": 18,
+      "description": "Lifter releases tension and rests arms on the machine frame after finishing the set."
+    },
+    "recommended_montage_slice": {
+      "start_seconds": 3.8,
+      "end_seconds": 16.2,
+      "duration_seconds": 12.4,
+      "reps_included": 5,
+      "notes": "Cut straight to the first pull around 3.8s and end right after the 5th rep returns to full extension at 16.2s to eliminate dead time."
+    }
+  },
+  {
+    "file": "2026_10_04_21_54_13_IMG_7081.MOV",
+    "exercise_name": "Low-to-High Cable Chest Fly",
+    "exercise_name_arabic": "تجميع صدر بالكيبل من أسفل إلى أعلى",
+    "targeted_muscle": "Chest / Pectoralis Major (عضلة الصدر)",
+    "machine_or_equipment": "Cable Crossover Machine",
+    "lifter_description": "Athletic young man wearing a black short-sleeve compression t-shirt with REVX logo, white loose sweatpants, and sandals",
+    "setup_dead_time": {
+      "start_seconds": 0,
+      "end_seconds": 20.5,
+      "description": "Previous lifter in Barcelona jersey finishing setup, main lifter walking over to adjust weight stack pins, grabbing handles, and stepping into position"
+    },
+    "active_workout_set": {
+      "start_seconds": 20.5,
+      "end_seconds": 36.5,
+      "total_reps": 6,
+      "reps": [
+        {
+          "rep_number": 1,
+          "start_seconds": 20.5,
+          "peak_contraction_seconds": 22,
+          "end_seconds": 23.5
+        },
+        {
+          "rep_number": 2,
+          "start_seconds": 24,
+          "peak_contraction_seconds": 25,
+          "end_seconds": 26
+        },
+        {
+          "rep_number": 3,
+          "start_seconds": 26.5,
+          "peak_contraction_seconds": 27.5,
+          "end_seconds": 28.5
+        },
+        {
+          "rep_number": 4,
+          "start_seconds": 29,
+          "peak_contraction_seconds": 30,
+          "end_seconds": 31
+        },
+        {
+          "rep_number": 5,
+          "start_seconds": 31.5,
+          "peak_contraction_seconds": 32.5,
+          "end_seconds": 33.5
+        },
+        {
+          "rep_number": 6,
+          "start_seconds": 34,
+          "peak_contraction_seconds": 35,
+          "end_seconds": 36.5
+        }
+      ]
+    },
+    "exit_dead_time": {
+      "start_seconds": 36.5,
+      "end_seconds": 96.5,
+      "description": "Lifter releases cable handles, rests, grabs his phone, and walks around the camera area"
+    },
+    "recommended_montage_slice": {
+      "start_seconds": 20.5,
+      "end_seconds": 36.5,
+      "duration_seconds": 16,
+      "reps_included": 6,
+      "notes": "Trim out all setup and post-set dead time. Start directly as the first repetition pull initiates at 20.5s for maximum social media retention."
+    }
+  },
+  {
+    "file": "2026_10_04_22_13_29_IMG_7091.MOV",
+    "exercise_name": "Cable Rear Delt Fly",
+    "exercise_name_arabic": "رفرفة خلفي كيبل / فراشة خلفي كيبل",
+    "targeted_muscle": "Posterior Deltoids (Rear Delts) & Upper Back - الكتف الخلفي وأعلى الظهر",
+    "machine_or_equipment": "Dual Cable Crossover Machine",
+    "lifter_description": "Athletic male seen from behind wearing a fitted navy blue short-sleeve shirt, light grey sweatpants, and slide sandals",
+    "setup_dead_time": {
+      "start_seconds": 0,
+      "end_seconds": 2,
+      "description": "Lifter stands holding crossed cables in front of his face while another person in a black t-shirt exits the frame to the left"
+    },
+    "active_workout_set": {
+      "start_seconds": 2,
+      "end_seconds": 20,
+      "total_reps": 9,
+      "reps": [
+        {
+          "rep_number": 1,
+          "start_seconds": 2,
+          "peak_contraction_seconds": 3,
+          "end_seconds": 4
+        },
+        {
+          "rep_number": 2,
+          "start_seconds": 4,
+          "peak_contraction_seconds": 5.5,
+          "end_seconds": 6.5
+        },
+        {
+          "rep_number": 3,
+          "start_seconds": 6.5,
+          "peak_contraction_seconds": 7.5,
+          "end_seconds": 8.5
+        },
+        {
+          "rep_number": 4,
+          "start_seconds": 8.5,
+          "peak_contraction_seconds": 9.5,
+          "end_seconds": 11
+        },
+        {
+          "rep_number": 5,
+          "start_seconds": 11,
+          "peak_contraction_seconds": 12,
+          "end_seconds": 13
+        },
+        {
+          "rep_number": 6,
+          "start_seconds": 13,
+          "peak_contraction_seconds": 14,
+          "end_seconds": 15
+        },
+        {
+          "rep_number": 7,
+          "start_seconds": 15,
+          "peak_contraction_seconds": 16,
+          "end_seconds": 16.5
+        },
+        {
+          "rep_number": 8,
+          "start_seconds": 16.5,
+          "peak_contraction_seconds": 17.5,
+          "end_seconds": 18
+        },
+        {
+          "rep_number": 9,
+          "start_seconds": 18,
+          "peak_contraction_seconds": 19,
+          "end_seconds": 20
+        }
+      ]
+    },
+    "exit_dead_time": {
+      "start_seconds": 20,
+      "end_seconds": 22,
+      "description": "Lifter completes the final rep, releases cables overhead, turns around to the camera smiling and celebrating"
+    },
+    "recommended_montage_slice": {
+      "start_seconds": 2,
+      "end_seconds": 10.5,
+      "duration_seconds": 8.5,
+      "reps_included": 4,
+      "notes": "Best clear segment showing reps 1 through 4 with optimal rear delt contraction and full unobstructed view, before bystanders walk across the camera view in later reps."
+    }
+  },
+  {
+    "file": "2026_10_04_22_27_13_IMG_7103.MOV",
+    "exercise_name": "Alternating Dumbbell Hammer Curls",
+    "exercise_name_arabic": "تبادل باي بالدمبل شاكوش",
+    "targeted_muscle": "Biceps & Brachioradialis / عضلة البايسبس وعضلة الساعد",
+    "machine_or_equipment": "Hex Dumbbells",
+    "lifter_description": "Athletic young man with short curly black hair, wearing a fitted black short-sleeve athletic shirt and navy blue track pants with white drawstrings.",
+    "setup_dead_time": {
+      "start_seconds": 0,
+      "end_seconds": 4.5,
+      "description": "Lifter bends over, picks up the dumbbells from the floor, stands upright, and prepares for the set."
+    },
+    "active_workout_set": {
+      "start_seconds": 4.5,
+      "end_seconds": 32.5,
+      "total_reps": 18,
+      "reps": [
+        {
+          "rep_number": 1,
+          "start_seconds": 4.5,
+          "peak_contraction_seconds": 5,
+          "end_seconds": 6
+        },
+        {
+          "rep_number": 2,
+          "start_seconds": 6,
+          "peak_contraction_seconds": 7,
+          "end_seconds": 7.5
+        },
+        {
+          "rep_number": 3,
+          "start_seconds": 7.5,
+          "peak_contraction_seconds": 8.5,
+          "end_seconds": 9.5
+        },
+        {
+          "rep_number": 4,
+          "start_seconds": 9.5,
+          "peak_contraction_seconds": 10,
+          "end_seconds": 11
+        },
+        {
+          "rep_number": 5,
+          "start_seconds": 11,
+          "peak_contraction_seconds": 11.5,
+          "end_seconds": 12.5
+        },
+        {
+          "rep_number": 6,
+          "start_seconds": 12.5,
+          "peak_contraction_seconds": 13,
+          "end_seconds": 13.5
+        },
+        {
+          "rep_number": 7,
+          "start_seconds": 13.5,
+          "peak_contraction_seconds": 14.5,
+          "end_seconds": 15.5
+        },
+        {
+          "rep_number": 8,
+          "start_seconds": 15.5,
+          "peak_contraction_seconds": 16,
+          "end_seconds": 17
+        },
+        {
+          "rep_number": 9,
+          "start_seconds": 17,
+          "peak_contraction_seconds": 17.5,
+          "end_seconds": 18.5
+        },
+        {
+          "rep_number": 10,
+          "start_seconds": 18.5,
+          "peak_contraction_seconds": 19,
+          "end_seconds": 20
+        },
+        {
+          "rep_number": 11,
+          "start_seconds": 20,
+          "peak_contraction_seconds": 20.5,
+          "end_seconds": 21.5
+        },
+        {
+          "rep_number": 12,
+          "start_seconds": 21.5,
+          "peak_contraction_seconds": 22,
+          "end_seconds": 23
+        },
+        {
+          "rep_number": 13,
+          "start_seconds": 23,
+          "peak_contraction_seconds": 23.5,
+          "end_seconds": 24.5
+        },
+        {
+          "rep_number": 14,
+          "start_seconds": 24.5,
+          "peak_contraction_seconds": 25,
+          "end_seconds": 26
+        },
+        {
+          "rep_number": 15,
+          "start_seconds": 26,
+          "peak_contraction_seconds": 26.5,
+          "end_seconds": 27.5
+        },
+        {
+          "rep_number": 16,
+          "start_seconds": 27.5,
+          "peak_contraction_seconds": 28,
+          "end_seconds": 29
+        },
+        {
+          "rep_number": 17,
+          "start_seconds": 29,
+          "peak_contraction_seconds": 29.5,
+          "end_seconds": 30.5
+        },
+        {
+          "rep_number": 18,
+          "start_seconds": 30.5,
+          "peak_contraction_seconds": 31,
+          "end_seconds": 32.5
+        }
+      ]
+    },
+    "exit_dead_time": {
+      "start_seconds": 32.5,
+      "end_seconds": 38,
+      "description": "Lifter bends forward to place the dumbbells back on the floor, stands up, and walks away."
+    },
+    "recommended_montage_slice": {
+      "start_seconds": 7.5,
+      "end_seconds": 13.5,
+      "duration_seconds": 6,
+      "reps_included": 4,
+      "notes": "Reps 3 through 6 exhibit excellent cadence, crisp peak arm contractions, and stable upper body posture ideal for social media reels."
+    }
+  },
+  {
+    "file": "2026_10_04_22_41_30_IMG_7117.MOV",
+    "exercise_name": "Wide Grip Cable Lat Pulldown",
+    "exercise_name_arabic": "سحب ظهر أمامي عالي على الجهاز",
+    "targeted_muscle": "Latissimus Dorsi & Upper Back (عضلات الظهر العريضة والمجنص)",
+    "machine_or_equipment": "Cable Lat Pulldown Machine",
+    "lifter_description": "Young athletic male wearing a black fitted short-sleeve athletic t-shirt, white/light grey sweatpants, and white athletic shoes; later another individual in a white jersey crosses in front, followed by a person in dark sweatpants and yellow slides",
+    "setup_dead_time": {
+      "start_seconds": 0,
+      "end_seconds": 4.5,
+      "description": "Lifter grabs the angled lat bar, sits down on the bench, secures knees under thigh pads, and pauses at full arm extension to prepare for the first rep"
+    },
+    "active_workout_set": {
+      "start_seconds": 4.5,
+      "end_seconds": 23.5,
+      "total_reps": 9,
+      "reps": [
+        {
+          "rep_number": 1,
+          "start_seconds": 4.5,
+          "peak_contraction_seconds": 5,
+          "end_seconds": 6.5
+        },
+        {
+          "rep_number": 2,
+          "start_seconds": 6.5,
+          "peak_contraction_seconds": 7.5,
+          "end_seconds": 9
+        },
+        {
+          "rep_number": 3,
+          "start_seconds": 9,
+          "peak_contraction_seconds": 10,
+          "end_seconds": 11
+        },
+        {
+          "rep_number": 4,
+          "start_seconds": 11,
+          "peak_contraction_seconds": 12,
+          "end_seconds": 13
+        },
+        {
+          "rep_number": 5,
+          "start_seconds": 13,
+          "peak_contraction_seconds": 14,
+          "end_seconds": 15
+        },
+        {
+          "rep_number": 6,
+          "start_seconds": 15,
+          "peak_contraction_seconds": 16,
+          "end_seconds": 17
+        },
+        {
+          "rep_number": 7,
+          "start_seconds": 17,
+          "peak_contraction_seconds": 18,
+          "end_seconds": 19
+        },
+        {
+          "rep_number": 8,
+          "start_seconds": 19,
+          "peak_contraction_seconds": 20,
+          "end_seconds": 21
+        },
+        {
+          "rep_number": 9,
+          "start_seconds": 21,
+          "peak_contraction_seconds": 22,
+          "end_seconds": 23.5
+        }
+      ]
+    },
+    "exit_dead_time": {
+      "start_seconds": 23.5,
+      "end_seconds": 30.5,
+      "description": "Set concludes; video cuts to another gym patron in dark pants and yellow slides standing around and setting up at the machine"
+    },
+    "recommended_montage_slice": {
+      "start_seconds": 9,
+      "end_seconds": 17,
+      "duration_seconds": 8,
+      "reps_included": 4,
+      "notes": "Features reps 3 through 6 showcasing smooth concentric and eccentric tempo, clean back retraction, and zero visual distractions before the photobomber enters at 21.0s"
+    }
+  }
+]

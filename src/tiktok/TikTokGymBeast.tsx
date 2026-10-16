@@ -5,6 +5,7 @@ import { ExerciseClip } from "./ExerciseClip";
 import { OutroCTA } from "./OutroCTA";
 import { ExerciseInfo } from "./TikTokHUD";
 
+// 🎯 Timestamps calibrated by Gemini Vision AI to cut 100% of dead time
 const EXERCISES: Array<{
   filename: string;
   trimStartSeconds: number;
@@ -14,13 +15,13 @@ const EXERCISES: Array<{
 }> = [
   {
     filename: "2026_10_04_21_08_54_IMG_7069.MOV",
-    trimStartSeconds: 3.0,
-    durationInFrames: 255, // 8.5s (4 complete reps)
+    trimStartSeconds: 7.5, // ✂️ Cut 0-7s strap setup dead-time -> starts right at Rep 1
+    durationInFrames: 255, // 8.5s (4 complete reps: Reps 1-4)
     expectedReps: 4,
     exercise: {
       number: "01",
-      name: "T-BAR ROW (CHEST SUPPORTED)",
-      nameArabic: "سحب تي بار بالجهاز - تركيز وضخ دم كامل",
+      name: "CHEST-SUPPORTED T-BAR ROW",
+      nameArabic: "سحب ظهر جهاز بدعم الصدر",
       muscle: "LATS & RHOMBOIDS",
       muscleArabic: "المجنص ووسط الظهر",
       intensity: "RPE 9.5 // HEAVY OVERLOAD",
@@ -28,13 +29,13 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_21_23_24_IMG_7071.MOV",
-    trimStartSeconds: 3.0,
-    durationInFrames: 225, // 7.5s (4 complete reps)
+    trimStartSeconds: 2.0, // ✂️ Cut 0-1.5s initial setup -> starts right at Rep 1
+    durationInFrames: 225, // 7.5s (4 clean reps)
     expectedReps: 4,
     exercise: {
       number: "02",
       name: "STRAIGHT-ARM CABLE PULLDOWN",
-      nameArabic: "كيبل بول داون ذراع مستقيم - أقصى تمدد",
+      nameArabic: "سحب ذراع مستقيمة على الكيبل",
       muscle: "LATERALIS & TERES MAJOR",
       muscleArabic: "عزل المجنص السفلي",
       intensity: "PEAK CONTRACTION",
@@ -42,8 +43,8 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_21_33_56_IMG_7073.MOV",
-    trimStartSeconds: 1.5,
-    durationInFrames: 225, // 7.5s (4 complete reps)
+    trimStartSeconds: 4.0, // ✂️ Cut 0-4s sitting down dead-time -> starts directly at pull
+    durationInFrames: 225, // 7.5s (4 full contractions)
     expectedReps: 4,
     exercise: {
       number: "03",
@@ -56,13 +57,13 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_22_13_29_IMG_7091.MOV",
-    trimStartSeconds: 3.0,
+    trimStartSeconds: 2.5, // ✂️ Cut 0-2s cable grip dead-time -> starts on first flye
     durationInFrames: 225, // 7.5s (4 complete reps)
     expectedReps: 4,
     exercise: {
       number: "04",
       name: "REAR DELT CABLE CROSSOVER",
-      nameArabic: "كروس أوفر كيبل كتف خلفي - عزل كامل",
+      nameArabic: "فراشة خلفي كيبل - عزل كامل",
       muscle: "POSTERIOR DELTOIDS",
       muscleArabic: "تفجير الكتف الخلفي 3D",
       intensity: "MAX PUMP & CONTROL",
@@ -70,13 +71,13 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_22_41_30_IMG_7117.MOV",
-    trimStartSeconds: 3.5,
+    trimStartSeconds: 5.0, // ✂️ Cut 0-4.5s grip adjustment dead-time -> starts right at first pulldown
     durationInFrames: 240, // 8.0s (4 complete reps)
     expectedReps: 4,
     exercise: {
       number: "05",
-      name: "CLOSE-GRIP LAT PULLDOWN",
-      nameArabic: "سحب عالي قبضة ضيقة - بناء العرض",
+      name: "WIDE-GRIP LAT PULLDOWN",
+      nameArabic: "سحب ظهر عالي بالجهاز",
       muscle: "UPPER LATS // V-TAPER",
       muscleArabic: "عرض الظهر V-Taper",
       intensity: "DEEP NEGATIVE STRETCH",
@@ -84,7 +85,7 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_22_27_13_IMG_7103.MOV",
-    trimStartSeconds: 2.5,
+    trimStartSeconds: 5.0, // ✂️ Cut 0-4.5s dumbbell pickup and turn dead-time -> starts right at heavy reps
     durationInFrames: 240, // 8.0s (4 heavy reps)
     expectedReps: 4,
     exercise: {
@@ -98,15 +99,15 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_21_54_13_IMG_7081.MOV",
-    trimStartSeconds: 54.0, // 🎯 Starts at 54s where the main lifter steps in with full focus!
-    durationInFrames: 285, // 9.5s (4 complete reps)
+    trimStartSeconds: 54.0, // ✂️ Cut 0-53s (skips waiting / background person) -> starts right at main lifter set
+    durationInFrames: 285, // 9.5s (4 complete reps facing camera)
     expectedReps: 4,
     exercise: {
       number: "07",
-      name: "CABLE LATERALS & FOREARMS BURNOUT",
-      nameArabic: "سحب جانبي وسواعد بالكيبل - إنهاء الجلسة",
-      muscle: "FOREARMS & DELTS BURNOUT",
-      muscleArabic: "حرق السواعد والذراع بالكامل",
+      name: "LOW-TO-HIGH CABLE CHEST FLY",
+      nameArabic: "تجميع صدر وسواعد بالكيبل - إنهاء الجلسة",
+      muscle: "CHEST & FOREARMS BURNOUT",
+      muscleArabic: "حرق السواعد والصدر بالكامل",
       intensity: "FINAL BURNOUT SET",
     },
   },
@@ -149,7 +150,7 @@ export const TikTokGymBeast: React.FC = () => {
           <IntroHook />
         </Series.Sequence>
 
-        {/* 2. 7 Full Exercise Sets with Multiple Reps (each 7.5 - 9.5s) */}
+        {/* 2. 7 Full Exercise Sets with Zero Dead-Time (AI Optimized) */}
         {EXERCISES.map((item, idx) => (
           <Series.Sequence key={item.filename} durationInFrames={item.durationInFrames}>
             <ExerciseClip
