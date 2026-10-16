@@ -5,7 +5,7 @@ import { ExerciseClip } from "./ExerciseClip";
 import { OutroCTA } from "./OutroCTA";
 import { ExerciseInfo } from "./TikTokHUD";
 
-// 🎯 Timestamps calibrated by Gemini Vision AI to cut 100% of dead time
+// 🎯 Timestamps calibrated to exact motion frames - 0% dead-time / 100% active reps
 const EXERCISES: Array<{
   filename: string;
   trimStartSeconds: number;
@@ -15,8 +15,8 @@ const EXERCISES: Array<{
 }> = [
   {
     filename: "2026_10_04_21_08_54_IMG_7069.MOV",
-    trimStartSeconds: 7.5, // ✂️ Cut 0-7s strap setup dead-time -> starts right at Rep 1
-    durationInFrames: 255, // 8.5s (4 complete reps: Reps 1-4)
+    trimStartSeconds: 12.5, // ✂️ Cut 0-12s strap wrapping -> starts right when locked onto pad under load
+    durationInFrames: 240, // 8.0s (full active set)
     expectedReps: 4,
     exercise: {
       number: "01",
@@ -29,22 +29,22 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_21_23_24_IMG_7071.MOV",
-    trimStartSeconds: 2.0, // ✂️ Cut 0-1.5s initial setup -> starts right at Rep 1
+    trimStartSeconds: 2.5, // ✂️ Cut dead-time -> starts right at Rep 1 triceps contraction
     durationInFrames: 225, // 7.5s (4 clean reps)
     expectedReps: 4,
     exercise: {
       number: "02",
-      name: "STRAIGHT-ARM CABLE PULLDOWN",
-      nameArabic: "سحب ذراع مستقيمة على الكيبل",
-      muscle: "LATERALIS & TERES MAJOR",
-      muscleArabic: "عزل المجنص السفلي",
+      name: "CABLE OVERHEAD TRICEPS EXTENSION",
+      nameArabic: "ترايسبس كابل خلف الرأس بالمسطرة",
+      muscle: "TRICEPS // LONG HEAD",
+      muscleArabic: "تفجير عضلة الترايسبس بالكامل",
       intensity: "PEAK CONTRACTION",
     },
   },
   {
     filename: "2026_10_04_21_33_56_IMG_7073.MOV",
-    trimStartSeconds: 4.0, // ✂️ Cut 0-4s sitting down dead-time -> starts directly at pull
-    durationInFrames: 225, // 7.5s (4 full contractions)
+    trimStartSeconds: 6.5, // ✂️ Cut 0-6s sitting/waiting -> starts right at first explosive pull
+    durationInFrames: 225, // 7.5s (4 deep row contractions)
     expectedReps: 4,
     exercise: {
       number: "03",
@@ -57,7 +57,7 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_22_13_29_IMG_7091.MOV",
-    trimStartSeconds: 2.5, // ✂️ Cut 0-2s cable grip dead-time -> starts on first flye
+    trimStartSeconds: 6.5, // ✂️ Cut 0-6s grip adjustment -> starts right when arms spread into rear delt fly
     durationInFrames: 225, // 7.5s (4 complete reps)
     expectedReps: 4,
     exercise: {
@@ -71,8 +71,8 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_22_41_30_IMG_7117.MOV",
-    trimStartSeconds: 5.0, // ✂️ Cut 0-4.5s grip adjustment dead-time -> starts right at first pulldown
-    durationInFrames: 240, // 8.0s (4 complete reps)
+    trimStartSeconds: 20.0, // ✂️ Cut 0-19s sitting/gripping bar -> starts right when bar pulls down to chest!
+    durationInFrames: 240, // 8.0s (clean full contractions)
     expectedReps: 4,
     exercise: {
       number: "05",
@@ -85,29 +85,29 @@ const EXERCISES: Array<{
   },
   {
     filename: "2026_10_04_22_27_13_IMG_7103.MOV",
-    trimStartSeconds: 5.0, // ✂️ Cut 0-4.5s dumbbell pickup and turn dead-time -> starts right at heavy reps
-    durationInFrames: 240, // 8.0s (4 heavy reps)
+    trimStartSeconds: 8.0, // ✂️ Cut 0-7.5s picking up dumbbells -> starts right at Rep 1 bicep curl
+    durationInFrames: 240, // 8.0s (4 heavy curls)
     expectedReps: 4,
     exercise: {
       number: "06",
-      name: "HEAVY DUMBBELL SHRUGS",
-      nameArabic: "شراجز دمبلز ثقيل - ترابيس حديد",
-      muscle: "TRAPEZIUS & UPPER NECK",
-      muscleArabic: "تفجير عضلات الترابيس",
-      intensity: "RPE 10 // PURE GRIT",
+      name: "ALTERNATING DUMBBELL BICEP CURLS",
+      nameArabic: "تبادل دمبلز بايسبس - قوة وتفجير الذراع",
+      muscle: "BICEPS BRACHII & BRACHIALIS",
+      muscleArabic: "تفجير كور عضلات البايسبس",
+      intensity: "RPE 10 // HEAVY GAINS",
     },
   },
   {
     filename: "2026_10_04_21_54_13_IMG_7081.MOV",
-    trimStartSeconds: 54.0, // ✂️ Cut 0-53s (skips waiting / background person) -> starts right at main lifter set
-    durationInFrames: 285, // 9.5s (4 complete reps facing camera)
+    trimStartSeconds: 64.5, // ✂️ Cut 0-64s setup/smiling -> starts directly at REVX lifter cable reps!
+    durationInFrames: 255, // 8.5s (full contractions on camera)
     expectedReps: 4,
     exercise: {
       number: "07",
-      name: "LOW-TO-HIGH CABLE CHEST FLY",
-      nameArabic: "تجميع صدر وسواعد بالكيبل - إنهاء الجلسة",
-      muscle: "CHEST & FOREARMS BURNOUT",
-      muscleArabic: "حرق السواعد والصدر بالكامل",
+      name: "LOW CABLE CHEST FLY & BICEP BURNOUT",
+      nameArabic: "تجميع وسحب كيبل سفلي - إنهاء الجلسة",
+      muscle: "CHEST & BICEPS BURNOUT",
+      muscleArabic: "حرق الصدر والبايسبس بالكامل",
       intensity: "FINAL BURNOUT SET",
     },
   },

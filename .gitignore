@@ -41,3 +41,14 @@ ehthumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+public/check_*/
+public/scan_*/
+public/time_check/
+check_*.js
+extract_*.js
+get_*.js
+list_*.js
+run_*.js
+scan_*.js
+scene_*.js
+scratch_*.js
