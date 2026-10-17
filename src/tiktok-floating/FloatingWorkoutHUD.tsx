@@ -95,21 +95,21 @@ export const FloatingWorkoutHUD: React.FC<FloatingWorkoutHUDProps> = ({
           <div
             style={{
               position: "relative",
-              width: "460px",
-              height: "720px",
+              width: "520px",
+              height: "760px",
               display: "flex",
               justifyContent: "space-between",
-              top: "-20px",
+              top: "60px",
             }}
           >
             {/* Left Laser Guide Rail */}
             <div
               style={{
-                width: "4px",
+                width: "5px",
                 height: `${trajectoryGrowth}px`,
                 background:
-                  "linear-gradient(180deg, rgba(255,220,120,0) 0%, #FFE259 25%, #FFA500 75%, rgba(255,165,0,0) 100%)",
-                boxShadow: `0 0 14px rgba(255, 180, 0, ${laserPulse}), 0 0 32px rgba(255, 140, 0, 0.55)`,
+                  "linear-gradient(180deg, rgba(255,255,255,0) 0%, #FFFFFF 15%, #FFE259 45%, #FFA500 80%, rgba(255,165,0,0) 100%)",
+                boxShadow: `0 0 16px rgba(255, 226, 89, ${laserPulse}), 0 0 35px rgba(255, 165, 0, 0.7), 0 0 60px rgba(255, 140, 0, 0.35)`,
                 borderRadius: "999px",
               }}
             />
@@ -117,11 +117,11 @@ export const FloatingWorkoutHUD: React.FC<FloatingWorkoutHUDProps> = ({
             {/* Right Laser Guide Rail */}
             <div
               style={{
-                width: "4px",
+                width: "5px",
                 height: `${trajectoryGrowth}px`,
                 background:
-                  "linear-gradient(180deg, rgba(255,220,120,0) 0%, #FFE259 25%, #FFA500 75%, rgba(255,165,0,0) 100%)",
-                boxShadow: `0 0 14px rgba(255, 180, 0, ${laserPulse}), 0 0 32px rgba(255, 140, 0, 0.55)`,
+                  "linear-gradient(180deg, rgba(255,255,255,0) 0%, #FFFFFF 15%, #FFE259 45%, #FFA500 80%, rgba(255,165,0,0) 100%)",
+                boxShadow: `0 0 16px rgba(255, 226, 89, ${laserPulse}), 0 0 35px rgba(255, 165, 0, 0.7), 0 0 60px rgba(255, 140, 0, 0.35)`,
                 borderRadius: "999px",
               }}
             />
@@ -129,51 +129,72 @@ export const FloatingWorkoutHUD: React.FC<FloatingWorkoutHUDProps> = ({
         </AbsoluteFill>
       )}
 
-      {/* 🌟 2. MAIN BORDERLESS FLOATING CHROME TITLE (Mid-Chest Safe Zone Y: ~54%) */}
+      {/* 🌟 2. MAIN 3D FLOATING CHROME TITLE (@erabii viral aesthetic in upper safe zone) */}
       {mainTitleOpacity > 0.01 && (
-        <AbsoluteFill
+        <div
           style={{
-            justifyContent: "center",
+            position: "absolute",
+            top: "230px",
+            left: 0,
+            right: 0,
+            display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            top: "80px",
             opacity: mainTitleOpacity,
-            transform: `scale(${scale})`,
+            perspective: "1000px",
+            transform: `perspective(1000px) rotateX(10deg) scale(${scale})`,
+            transformOrigin: "center top",
+            zIndex: 50,
           }}
         >
-          {/* Top Pill / Muscle Tag */}
+          {/* Subtle contrast diffuser behind 3D floating text */}
+          <div
+            style={{
+              position: "absolute",
+              top: "-20px",
+              width: "740px",
+              height: "340px",
+              background:
+                "radial-gradient(ellipse at center, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0.20) 50%, transparent 75%)",
+              zIndex: -1,
+              pointerEvents: "none",
+            }}
+          />
+
+          {/* Subtle Golden Sub-badge */}
           <div
             style={{
               display: "flex",
               alignItems: "center",
-              gap: "10px",
-              marginBottom: "16px",
+              gap: "8px",
+              marginBottom: "14px",
               fontFamily,
               fontWeight: 800,
-              fontSize: "20px",
+              fontSize: "17px",
               letterSpacing: "4px",
               color: "#FFE259",
               textTransform: "uppercase",
               filter:
-                "drop-shadow(0 0 12px rgba(255, 215, 0, 0.8)) drop-shadow(0 2px 6px rgba(0,0,0,0.9))",
+                "drop-shadow(0 0 10px rgba(255, 215, 0, 0.75)) drop-shadow(0 2px 4px rgba(0,0,0,0.9))",
             }}
           >
             <span>EXERCISE {exerciseNumber} // {totalExercises}</span>
             <span style={{ color: "rgba(255,255,255,0.4)" }}>•</span>
-            <span style={{ color: "#00E5FF" }}>{muscleTag}</span>
+            <span style={{ color: "#FFF" }}>{muscleTag}</span>
           </div>
 
-          {/* Stacked Kinetic Bold Chrome Typography */}
+          {/* Massive Stacked Kinetic 3D Chrome Typography */}
           <div
             style={{
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               textAlign: "center",
-              letterSpacing: `${tracking}px`,
+              letterSpacing: "-1.5px",
               fontFamily,
               fontWeight: 900,
               textTransform: "uppercase",
-              lineHeight: 0.92,
+              lineHeight: 0.88,
             }}
           >
             {titleLines.map((line, idx) => {
@@ -185,17 +206,19 @@ export const FloatingWorkoutHUD: React.FC<FloatingWorkoutHUDProps> = ({
                   style={{
                     fontSize:
                       line.length > 14
-                        ? "58px"
+                        ? "70px"
                         : line.length > 9
-                        ? "68px"
-                        : "78px",
+                        ? "84px"
+                        : "96px",
                     background: isHighlight
-                      ? "linear-gradient(180deg, #FFFFFF 15%, #FFE259 60%, #FFA500 100%)"
-                      : "linear-gradient(180deg, #FFFFFF 20%, #DCE5ED 65%, #94A3B8 100%)",
+                      ? "linear-gradient(180deg, #FFFFFF 20%, #FFF4B8 55%, #FFCA28 80%, #FF9800 100%)"
+                      : "linear-gradient(180deg, #FFFFFF 25%, #E2E8F0 65%, #94A3B8 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
+                    textShadow:
+                      "0 1px 0 rgba(255,255,255,0.9), 0 2px 0 #CBD5E1, 0 3px 0 #94A3B8, 0 4px 0 #64748B, 0 6px 12px rgba(0,0,0,0.9)",
                     filter:
-                      "drop-shadow(0 0 16px rgba(255, 200, 50, 0.65)) drop-shadow(0 0 38px rgba(255, 140, 0, 0.35)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.95))",
+                      "drop-shadow(0 0 20px rgba(255, 215, 60, 0.85)) drop-shadow(0 0 45px rgba(255, 150, 0, 0.45)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.95))",
                     display: "inline-block",
                   }}
                 >
@@ -208,20 +231,20 @@ export const FloatingWorkoutHUD: React.FC<FloatingWorkoutHUDProps> = ({
           {/* Bottom Intensity / Prescription Line */}
           <div
             style={{
-              marginTop: "20px",
+              marginTop: "18px",
               fontFamily,
               fontWeight: 800,
-              fontSize: "19px",
+              fontSize: "17px",
               letterSpacing: "3px",
-              color: "#FFFFFF",
+              color: "rgba(255,255,255,0.9)",
               textTransform: "uppercase",
               filter:
-                "drop-shadow(0 0 8px rgba(255, 255, 255, 0.6)) drop-shadow(0 2px 8px rgba(0,0,0,0.9))",
+                "drop-shadow(0 0 8px rgba(255, 255, 255, 0.5)) drop-shadow(0 2px 6px rgba(0,0,0,0.9))",
             }}
           >
             {intensityTag}
           </div>
-        </AbsoluteFill>
+        </div>
       )}
 
       {/* 📌 3. PERSISTENT MINIMAL FLOATING BADGE (Visible after main title fades out) */}

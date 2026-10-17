@@ -9,8 +9,6 @@ import {
 } from "remotion";
 import { FloatingWorkoutHUD } from "./FloatingWorkoutHUD";
 import { FloatingFinishingStack } from "./FloatingFinishingStack";
-import { DynamicAIBiomechanicsHUD } from "./DynamicAIBiomechanicsHUD";
-import { AthleteOcclusionLayer } from "./AthleteOcclusionLayer";
 import { getSpring } from "../motion";
 
 export interface FloatingExerciseClipProps {
@@ -138,27 +136,19 @@ export const FloatingExerciseClip: React.FC<FloatingExerciseClipProps> = ({
         />
       )}
 
-      {/* ⚡ 4. AI-Driven Dynamic Wrist & Dumbbell Laser Tracking (YOLOv8 Pose) */}
-      <DynamicAIBiomechanicsHUD
-        exerciseId={exerciseNumber}
-        showLaserTracking={showTrajectory}
+      {/* 📱 4. Floating Workout HUD (Reference Video Aesthetic with Neon Trajectory Rails) */}
+      <FloatingWorkoutHUD
+        exerciseNumber={exerciseNumber}
+        totalExercises={totalExercises}
+        titleLines={titleLines}
+        muscleTag={muscleTag}
+        intensityTag={intensityTag}
+        showTrajectory={showTrajectory}
+        currentRep={currentRep}
+        totalReps={expectedReps}
       />
 
-      {/* 📱 5. Floating Workout Typography with Athlete Occlusion (Text Behind Athlete) */}
-      <AthleteOcclusionLayer exerciseId={exerciseNumber}>
-        <FloatingWorkoutHUD
-          exerciseNumber={exerciseNumber}
-          totalExercises={totalExercises}
-          titleLines={titleLines}
-          muscleTag={muscleTag}
-          intensityTag={intensityTag}
-          showTrajectory={false}
-          currentRep={currentRep}
-          totalReps={expectedReps}
-        />
-      </AthleteOcclusionLayer>
-
-      {/* 🎞️ 6. Cinematic Vignette and Ambient Halation */}
+      {/* 🎞️ 5. Cinematic Vignette and Ambient Halation */}
       <FloatingFinishingStack />
     </AbsoluteFill>
   );
