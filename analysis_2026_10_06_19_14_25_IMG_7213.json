@@ -1,0 +1,54 @@
+{
+  "file": "2026_10_06_19_14_25_IMG_7213.MP4",
+  "video_summary": "Lifter sets up in the power rack and executes 11 solid reps of heavy Barbell Shrugs targeting the upper trapezius with powerful lockout elevations.",
+  "lifter_profile": {
+    "appearance": "Young male athlete in white t-shirt and dark loose athletic pants, barefoot."
+  },
+  "exercise_details": {
+    "name": "BARBELL POWER RACK SHRUG",
+    "primary_muscle": "TRAPEZIUS (UPPER & MID TRAPS)",
+    "secondary_muscles": [
+      "Forearm Flexors",
+      "Rhomboids",
+      "Levator Scapulae"
+    ],
+    "machine_or_equipment": "Olympic barbell on safety pins inside a power rack",
+    "intensity_rpe": "RPE 9.0 // TRAP OVERLOAD"
+  },
+  "auto_framing": {
+    "focal_center_x_percent": 38,
+    "focal_center_y_percent": 56,
+    "lifter_drift": "stationary",
+    "recommended_camera_scale": 1.12,
+    "framing_notes": "Focal center locked on lifter torso and trap elevation at (38%, 56%)."
+  },
+  "timeline": {
+    "setup_dead_time": {
+      "start_seconds": 0,
+      "end_seconds": 18,
+      "description": "Lifter approaches, adjusts stance and grips barbell under load."
+    },
+    "active_workout_set": {
+      "start_seconds": 18,
+      "end_seconds": 30,
+      "total_reps_completed": 11
+    },
+    "exit_dead_time": {
+      "start_seconds": 30,
+      "end_seconds": 44.5,
+      "description": "Lifter racks the bar and steps back."
+    }
+  },
+  "editing_recommendation": {
+    "trim_start_seconds": 18,
+    "trim_end_seconds": 25.5,
+    "duration_seconds": 7.5,
+    "best_rep_highlights": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  }
+}

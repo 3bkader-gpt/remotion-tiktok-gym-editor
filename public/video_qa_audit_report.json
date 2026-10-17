@@ -1,0 +1,92 @@
+{
+  "audit_metadata": {
+    "title": "Hamzawy 8-Exercise Master Workout Review",
+    "aspect_ratio": "9:16 Vertical",
+    "target_platform": "TikTok / Instagram Reels / YouTube Shorts",
+    "overall_score": 9.5,
+    "verdict": "READY_TO_PUBLISH"
+  },
+  "overall_critique": "Exceptional post-production quality and sleek UI integration. The HUD system (cyber-tactical athletic motif with high-contrast amber/cyan accents) creates instant retention and clear pedagogical value. Rep counters, anatomical target tags, and RPE ratings deliver strong biomechanical credibility. Safe zone clearances, pacing structure, and typographic hierarchy are tuned perfectly for short-form algorithms.",
+  "safe_zone_audit": {
+    "status": "PASS",
+    "top_safe_zone": "The global energy progress bar runs cleanly along the top border, while the 'HAMZAWY // 4K MASTER' and 'EXERCISE X / 8' badges sit comfortably within the 8%–12% vertical band, safely clearing native platform UI notches and status headers.",
+    "right_action_zone": "All exercise titles and info card boundaries terminate with ample negative space on the right, keeping them 15%–20% clear of TikTok's engagement stack (Like, Comment, Save, Share).",
+    "bottom_caption_zone": "The lower HUD card and rep progress bar are anchored between 70% and 80% screen height, staying cleanly above TikTok's native audio disc, user handle, and caption overlay area."
+  },
+  "color_and_lighting_audit": {
+    "skin_tone_naturalness": "9.4/10 - Skin tones are natural and authentic under ambient gym illumination, with no sickly oversaturation or clipping in highlights.",
+    "color_balance": "9.5/10 - Excellent contrast ratio; dark slate HUD cards with vibrant amber/orange indicators cut through both light and dark gym machinery backgrounds.",
+    "distraction_free": "9.2/10 - Clean stable composition throughout. Clip 6 exhibits a minor out-of-focus obstruction/finger blur in the bottom-left corner from the raw camera capture, but HUD placement completely masks potential visual disturbance."
+  },
+  "clip_reviews": [
+    {
+      "clip_index": 1,
+      "exercise_name": "INCLINE DUMBBELL BENCH PRESS",
+      "visual_rating": "9.6/10",
+      "framing_accuracy": "Lifter, spotter, and dumbbell trajectory are tightly framed and centered in 9:16 vertical format.",
+      "data_match": "Exact match: Incline press motion accurately matches Clavicular Head chest targeting with RPE 9.0 rating.",
+      "specific_recommendations": "None - Flawless"
+    },
+    {
+      "clip_index": 2,
+      "exercise_name": "CHEST-SUPPORTED T-BAR ROW",
+      "visual_rating": "9.7/10",
+      "framing_accuracy": "Side profile auto-framing captures full range of motion from contraction to plate clearance cleanly.",
+      "data_match": "Exact match: Upper back and lat thickness tagging directly mirrors the heavy dead-stop pull mechanics.",
+      "specific_recommendations": "None - Flawless"
+    },
+    {
+      "clip_index": 3,
+      "exercise_name": "MACHINE CHEST FLY",
+      "visual_rating": "9.5/10",
+      "framing_accuracy": "Direct symmetrical frontal shot framing both arms at peak horizontal adduction.",
+      "data_match": "Exact match: Pectoralis Major // Inner Chest accurately identifies the peak contraction isolation shown.",
+      "specific_recommendations": "None - Flawless"
+    },
+    {
+      "clip_index": 4,
+      "exercise_name": "WIDE-GRIP LAT PULLDOWN",
+      "visual_rating": "9.6/10",
+      "framing_accuracy": "Rear posterior chain framing shows lat expansion and bar travel cleanly without head occlusion.",
+      "data_match": "Exact match: Latissimus Dorsi // V-Taper matches concentric pull to upper chest perfectly.",
+      "specific_recommendations": "None - Flawless"
+    },
+    {
+      "clip_index": 5,
+      "exercise_name": "STANDING MACHINE LATERAL RAISE",
+      "visual_rating": "9.4/10",
+      "framing_accuracy": "Full body standing profile on platform preserves head and elbow plane elevation.",
+      "data_match": "Exact match: Lateral Deltoids // 3D Caps accurately reflects shoulder abduction.",
+      "specific_recommendations": "None - Flawless"
+    },
+    {
+      "clip_index": 6,
+      "exercise_name": "BARBELL POWER RACK SHRUG",
+      "visual_rating": "9.1/10",
+      "framing_accuracy": "Good vertical alignment centering the barbell lockout and scapular elevation.",
+      "data_match": "Exact match: Trapezius // Upper Back Overload matches power shrug execution.",
+      "specific_recommendations": "Slight camera operator lens flare/blur on lower left from physical filming; HUD nicely overlays this region so no revision needed."
+    },
+    {
+      "clip_index": 7,
+      "exercise_name": "CABLE STRAIGHT-ARM PULLDOWN",
+      "visual_rating": "9.5/10",
+      "framing_accuracy": "Angled mirror composition captures arm path and lat stretch cleanly.",
+      "data_match": "Exact match: Lats & Serratus Anterior precisely tracks the straight-arm extension arc.",
+      "specific_recommendations": "None - Flawless"
+    },
+    {
+      "clip_index": 8,
+      "exercise_name": "KNEELING CABLE CRUNCH",
+      "visual_rating": "9.5/10",
+      "framing_accuracy": "Framing accounts for downward spine flexion while retaining HUD readability above the floor line.",
+      "data_match": "Exact match: Rectus Abdominis // Six-Pack correctly labels spinal flexion under cable load.",
+      "specific_recommendations": "None - Flawless"
+    }
+  ],
+  "actionable_recommendations": [
+    "Approved for immediate publication: Master render is fully optimized for vertical short-form distribution across TikTok, IG Reels, and YouTube Shorts.",
+    "Optional Future Polish: In routine summary outro, ensure brand handle watermark '@dragon.gym' remains consistent with athlete primary branding '@hamzawy' if cross-posting to multiple creator accounts.",
+    "Audio Pairing Recommendation: Deploy a high-tempo phonk or dark industrial electronic beat synced with the rep cadence transitions to maximize algorithmic watch completion."
+  ]
+}

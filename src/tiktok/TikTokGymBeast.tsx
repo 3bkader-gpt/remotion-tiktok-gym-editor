@@ -1,114 +1,157 @@
 import React from "react";
-import { AbsoluteFill, Series, useCurrentFrame } from "remotion";
+import {
+  AbsoluteFill,
+  Audio,
+  interpolate,
+  Series,
+  staticFile,
+  useCurrentFrame,
+} from "remotion";
 import { IntroHook } from "./IntroHook";
 import { ExerciseClip } from "./ExerciseClip";
 import { OutroCTA } from "./OutroCTA";
 import { ExerciseInfo } from "./TikTokHUD";
 
-// 🎯 Timestamps calibrated to exact motion frames - 0% dead-time / 100% active reps
-const EXERCISES: Array<{
+// 🎯 Timestamps and Biomechanics calibrated via Gemini 3.7 Flash analysis
+export interface WorkoutExerciseItem {
   filename: string;
   trimStartSeconds: number;
   durationInFrames: number;
   expectedReps: number;
+  focalCenterXPercent: number;
+  focalCenterYPercent: number;
+  lifterDrift: "stationary" | "leans_forward" | "shifts_left" | "shifts_right";
+  recommendedCameraScale: number;
   exercise: ExerciseInfo;
-}> = [
+}
+
+export const EXERCISES: WorkoutExerciseItem[] = [
   {
-    filename: "2026_10_04_21_08_54_IMG_7069.MOV",
-    trimStartSeconds: 12.5, // ✂️ Cut 0-12s strap wrapping -> starts right when locked onto pad under load
-    durationInFrames: 240, // 8.0s (full active set)
+    filename: "2026_10_06_18_03_56_IMG_7166.mp4",
+    trimStartSeconds: 4.0, // ✂️ Cut 0-4s setup -> starts right at first incline press lockout
+    durationInFrames: 195, // 6.5s
     expectedReps: 4,
+    focalCenterXPercent: 48,
+    focalCenterYPercent: 50,
+    lifterDrift: "stationary",
+    recommendedCameraScale: 1.12,
     exercise: {
       number: "01",
-      name: "CHEST-SUPPORTED T-BAR ROW",
-      nameArabic: "سحب ظهر جهاز بدعم الصدر",
-      muscle: "LATS & RHOMBOIDS",
-      muscleArabic: "المجنص ووسط الظهر",
-      intensity: "RPE 9.5 // HEAVY OVERLOAD",
+      name: "INCLINE DUMBBELL BENCH PRESS",
+      muscle: "UPPER CHEST // CLAVICULAR HEAD",
+      intensity: "RPE 9.0 // HEAVY OVERLOAD",
     },
   },
   {
-    filename: "2026_10_04_21_23_24_IMG_7071.MOV",
-    trimStartSeconds: 2.5, // ✂️ Cut dead-time -> starts right at Rep 1 triceps contraction
-    durationInFrames: 225, // 7.5s (4 clean reps)
+    filename: "2026_10_06_18_18_14_IMG_7168.mp4",
+    trimStartSeconds: 12.5, // ✂️ Cut 0-12s strap wrapping & waiting -> starts right as athlete pulls heavy T-bar row
+    durationInFrames: 195, // 6.5s
     expectedReps: 4,
+    focalCenterXPercent: 54,
+    focalCenterYPercent: 44,
+    lifterDrift: "stationary",
+    recommendedCameraScale: 1.12,
     exercise: {
       number: "02",
-      name: "CABLE OVERHEAD TRICEPS EXTENSION",
-      nameArabic: "ترايسبس كابل خلف الرأس بالمسطرة",
-      muscle: "TRICEPS // LONG HEAD",
-      muscleArabic: "تفجير عضلة الترايسبس بالكامل",
-      intensity: "PEAK CONTRACTION",
+      name: "CHEST-SUPPORTED T-BAR ROW",
+      muscle: "UPPER BACK & LATS // THICKNESS",
+      intensity: "RPE 9.5 // DEADLOCK SQUEEZE",
     },
   },
   {
-    filename: "2026_10_04_21_33_56_IMG_7073.MOV",
-    trimStartSeconds: 6.5, // ✂️ Cut 0-6s sitting/waiting -> starts right at first explosive pull
-    durationInFrames: 225, // 7.5s (4 deep row contractions)
+    filename: "2026_10_06_18_31_18_IMG_7171.mp4",
+    trimStartSeconds: 24.0, // ✂️ Cut 0-23.5s reaching back & grabbing handles -> starts right at first explosive chest squeeze
+    durationInFrames: 195, // 6.5s (24.0s - 30.5s: 4 full working reps)
     expectedReps: 4,
+    focalCenterXPercent: 49,
+    focalCenterYPercent: 44,
+    lifterDrift: "stationary",
+    recommendedCameraScale: 1.10,
     exercise: {
       number: "03",
-      name: "SEATED MACHINE ROW",
-      nameArabic: "سحب أرضي بالجهاز - قوة وثبات الظهر",
-      muscle: "MID-BACK & LATS",
-      muscleArabic: "سمك الظهر الداخلي",
-      intensity: "RPE 10 // PURE FAILURE",
+      name: "MACHINE CHEST FLY",
+      muscle: "PECTORALIS MAJOR // INNER CHEST",
+      intensity: "PEAK CONTRACTION ISOLATION",
     },
   },
   {
-    filename: "2026_10_04_22_13_29_IMG_7091.MOV",
-    trimStartSeconds: 6.5, // ✂️ Cut 0-6s grip adjustment -> starts right when arms spread into rear delt fly
-    durationInFrames: 225, // 7.5s (4 complete reps)
+    filename: "2026_10_06_18_52_38_IMG_7202.MP4",
+    trimStartSeconds: 5.5, // ✂️ Cut 0-5s seating -> starts right at first explosive downward lat pull
+    durationInFrames: 195, // 6.5s
     expectedReps: 4,
+    focalCenterXPercent: 52,
+    focalCenterYPercent: 44,
+    lifterDrift: "stationary",
+    recommendedCameraScale: 1.12,
     exercise: {
       number: "04",
-      name: "REAR DELT CABLE CROSSOVER",
-      nameArabic: "فراشة خلفي كيبل - عزل كامل",
-      muscle: "POSTERIOR DELTOIDS",
-      muscleArabic: "تفجير الكتف الخلفي 3D",
-      intensity: "MAX PUMP & CONTROL",
-    },
-  },
-  {
-    filename: "2026_10_04_22_41_30_IMG_7117.MOV",
-    trimStartSeconds: 20.0, // ✂️ Cut 0-19s sitting/gripping bar -> starts right when bar pulls down to chest!
-    durationInFrames: 240, // 8.0s (clean full contractions)
-    expectedReps: 4,
-    exercise: {
-      number: "05",
       name: "WIDE-GRIP LAT PULLDOWN",
-      nameArabic: "سحب ظهر عالي بالجهاز",
-      muscle: "UPPER LATS // V-TAPER",
-      muscleArabic: "عرض الظهر V-Taper",
+      muscle: "LATISSIMUS DORSI // V-TAPER",
       intensity: "DEEP NEGATIVE STRETCH",
     },
   },
   {
-    filename: "2026_10_04_22_27_13_IMG_7103.MOV",
-    trimStartSeconds: 8.0, // ✂️ Cut 0-7.5s picking up dumbbells -> starts right at Rep 1 bicep curl
-    durationInFrames: 240, // 8.0s (4 heavy curls)
-    expectedReps: 4,
+    filename: "2026_10_06_19_03_16_IMG_7207.MP4",
+    trimStartSeconds: 11.5, // ✂️ Cut 0-11s platform setup & grip -> starts right at first lateral raise elevation
+    durationInFrames: 195, // 6.5s
+    expectedReps: 6,
+    focalCenterXPercent: 33,
+    focalCenterYPercent: 42,
+    lifterDrift: "stationary",
+    recommendedCameraScale: 1.14,
     exercise: {
-      number: "06",
-      name: "ALTERNATING DUMBBELL BICEP CURLS",
-      nameArabic: "تبادل دمبلز بايسبس - قوة وتفجير الذراع",
-      muscle: "BICEPS BRACHII & BRACHIALIS",
-      muscleArabic: "تفجير كور عضلات البايسبس",
-      intensity: "RPE 10 // HEAVY GAINS",
+      number: "05",
+      name: "STANDING MACHINE LATERAL RAISE",
+      muscle: "LATERAL DELTOIDS // 3D CAPS",
+      intensity: "METABOLIC PUMP BURNOUT",
     },
   },
   {
-    filename: "2026_10_04_21_54_13_IMG_7081.MOV",
-    trimStartSeconds: 64.5, // ✂️ Cut 0-64s setup/smiling -> starts directly at REVX lifter cable reps!
-    durationInFrames: 255, // 8.5s (full contractions on camera)
+    filename: "2026_10_06_19_14_25_IMG_7213.MP4",
+    trimStartSeconds: 30.0, // ✂️ Cut 0-29s obstructed view & setup -> starts right at rapid heavy power rack shrug reps
+    durationInFrames: 195, // 6.5s
+    expectedReps: 5,
+    focalCenterXPercent: 38,
+    focalCenterYPercent: 56,
+    lifterDrift: "stationary",
+    recommendedCameraScale: 1.10,
+    exercise: {
+      number: "06",
+      name: "BARBELL POWER RACK SHRUG",
+      muscle: "TRAPEZIUS // UPPER BACK OVERLOAD",
+      intensity: "RPE 9.0 // HEAVY POWER ELEVATION",
+    },
+  },
+  {
+    filename: "2026_10_06_19_20_02_IMG_7214.MP4",
+    trimStartSeconds: 1.0, // ✂️ Starts immediately as bar sweeps down into lat arc
+    durationInFrames: 195, // 6.5s
     expectedReps: 4,
+    focalCenterXPercent: 57,
+    focalCenterYPercent: 48,
+    lifterDrift: "stationary",
+    recommendedCameraScale: 1.10,
     exercise: {
       number: "07",
-      name: "LOW CABLE CHEST FLY & BICEP BURNOUT",
-      nameArabic: "تجميع وسحب كيبل سفلي - إنهاء الجلسة",
-      muscle: "CHEST & BICEPS BURNOUT",
-      muscleArabic: "حرق الصدر والبايسبس بالكامل",
-      intensity: "FINAL BURNOUT SET",
+      name: "CABLE STRAIGHT-ARM PULLDOWN",
+      muscle: "LATS & SERRATUS ANTERIOR",
+      intensity: "FULL ARC CONTRACTION",
+    },
+  },
+  {
+    filename: "2026_10_06_19_26_57_IMG_7212.MP4",
+    trimStartSeconds: 1.5, // ✂️ Starts right as spine flexes into deep kneeling cable crunch
+    durationInFrames: 195, // 6.5s
+    expectedReps: 5,
+    focalCenterXPercent: 38,
+    focalCenterYPercent: 58,
+    lifterDrift: "stationary",
+    recommendedCameraScale: 1.12,
+    exercise: {
+      number: "08",
+      name: "KNEELING CABLE CRUNCH",
+      muscle: "RECTUS ABDOMINIS // SIX-PACK",
+      intensity: "RPE 10 // CORE FINISHER",
     },
   },
 ];
@@ -116,12 +159,28 @@ const EXERCISES: Array<{
 export const TOTAL_TIKTOK_FRAMES =
   60 + EXERCISES.reduce((acc, curr) => acc + curr.durationInFrames, 0) + 75;
 
-export const TikTokGymBeast: React.FC = () => {
+export const TikTokGymBeast: React.FC<{
+  quranAudioFile?: string;
+}> = ({ quranAudioFile }) => {
   const frame = useCurrentFrame();
   const overallProgress = Math.min(100, Math.max(0, (frame / TOTAL_TIKTOK_FRAMES) * 100));
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#000" }}>
+      {/* 📖 Quran Background Audio Layer (Respectful Fade-in / Fade-out) */}
+      {quranAudioFile && (
+        <Audio
+          src={staticFile(quranAudioFile)}
+          volume={(f) =>
+            interpolate(
+              f,
+              [0, 30, TOTAL_TIKTOK_FRAMES - 45, TOTAL_TIKTOK_FRAMES],
+              [0, 0.85, 0.85, 0],
+              { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+            )
+          }
+        />
+      )}
       {/* Global Top Energy Progress Bar (TikTok Indicator) */}
       <div
         style={{
@@ -150,7 +209,7 @@ export const TikTokGymBeast: React.FC = () => {
           <IntroHook />
         </Series.Sequence>
 
-        {/* 2. 7 Full Exercise Sets with Zero Dead-Time (AI Optimized) */}
+        {/* 2. 7 Full Exercise Sets with Zero Dead-Time & Auto-Framing (AI Calibrated) */}
         {EXERCISES.map((item, idx) => (
           <Series.Sequence key={item.filename} durationInFrames={item.durationInFrames}>
             <ExerciseClip
@@ -161,6 +220,10 @@ export const TikTokGymBeast: React.FC = () => {
               exerciseIndex={idx + 1}
               totalExercises={EXERCISES.length}
               expectedReps={item.expectedReps}
+              focalCenterXPercent={item.focalCenterXPercent}
+              focalCenterYPercent={item.focalCenterYPercent}
+              lifterDrift={item.lifterDrift}
+              recommendedCameraScale={item.recommendedCameraScale}
             />
           </Series.Sequence>
         ))}

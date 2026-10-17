@@ -8,13 +8,9 @@ import {
   Easing,
 } from "remotion";
 import { loadFont as loadBebas } from "@remotion/google-fonts/BebasNeue";
-import { loadFont as loadCairo } from "@remotion/google-fonts/Cairo";
+import { CinematicFinishingStack } from "./CinematicFinishingStack";
 
 const { fontFamily: bebasFont } = loadBebas();
-const { fontFamily: cairoFont } = loadCairo("normal", {
-  weights: ["700", "900"],
-  ignoreTooManyRequestsWarning: true,
-});
 
 export const IntroHook: React.FC = () => {
   const frame = useCurrentFrame();
@@ -25,11 +21,11 @@ export const IntroHook: React.FC = () => {
     easing: Easing.out(Easing.cubic),
   });
 
-  const flash = interpolate(frame, [0, 6, 12, 18], [1, 0, 0.6, 0], {
+  const flash = interpolate(frame, [0, 6, 12, 18], [0.4, 0, 0.2, 0], {
     extrapolateRight: "clamp",
   });
 
-  const textScale = interpolate(frame, [0, 15], [0.8, 1], {
+  const textScale = interpolate(frame, [0, 15], [0.85, 1], {
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.back(1.5)),
   });
@@ -47,8 +43,10 @@ export const IntroHook: React.FC = () => {
         alignItems: "center",
       }}
     >
-      {/* Bass Impact Audio */}
-      <Audio src={staticFile("sfx/bass_hit.wav")} volume={1} />
+      {/* 🔊 Cinematic Sub-Bass Impact on Intro Hook */}
+      <Audio src={staticFile("sfx/bass_hit.wav")} volume={0.65} startFrom={0} />
+
+      <CinematicFinishingStack />
 
       {/* Background Graphic with Fiery Glow */}
       <div
@@ -98,7 +96,7 @@ export const IntroHook: React.FC = () => {
             textShadow: "0 0 20px rgba(255, 140, 0, 0.8)",
           }}
         >
-          DRAGON'S LAIR // PULL DAY
+          HAMZAWY // ATHLETE PROTOCOL
         </div>
 
         {/* Main Title */}
@@ -115,7 +113,7 @@ export const IntroHook: React.FC = () => {
               "0 0 30px rgba(255, 69, 0, 0.9), 0 0 60px rgba(255, 0, 0, 0.6)",
           }}
         >
-          UNLEASH
+          UPPER BODY
           <br />
           <span
             style={{
@@ -124,28 +122,28 @@ export const IntroHook: React.FC = () => {
               WebkitTextFillColor: "transparent",
             }}
           >
-            THE DRAGON
+            OVERLOAD
           </span>
         </div>
 
-        {/* Arabic Viral Hook */}
+        {/* High-Energy Tech Hook */}
         <div
           style={{
             marginTop: 24,
-            fontFamily: cairoFont,
-            fontSize: 42,
-            fontWeight: 900,
+            fontFamily: bebasFont,
+            fontSize: 40,
+            letterSpacing: 3,
             color: "#ffffff",
             opacity: subTextOpacity,
-            direction: "rtl",
             textShadow: "0 4px 20px rgba(0,0,0,0.9)",
-            background: "rgba(0, 0, 0, 0.6)",
-            padding: "8px 24px",
+            background: "rgba(0, 0, 0, 0.65)",
+            padding: "8px 28px",
             borderRadius: 16,
-            border: "1px solid rgba(255, 140, 0, 0.4)",
+            border: "1px solid rgba(255, 140, 0, 0.5)",
+            boxShadow: "0 0 25px rgba(255, 69, 0, 0.4)",
           }}
         >
-          تمرينة ظهر وسواعد تفجير 🔥
+          FULL 8-EXERCISE PROTOCOL // RPE 9.5 🔥
         </div>
       </div>
 

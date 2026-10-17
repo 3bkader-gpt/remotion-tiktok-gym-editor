@@ -1,0 +1,34 @@
+[
+  {
+    "file": "2026_10_06_18_03_56_IMG_7166.mp4",
+    "name": "INCLINE BENCH PRESS",
+    "setup_end_second": 4,
+    "optimal_6_5s_clip_start": 4,
+    "optimal_6_5s_clip_end": 10.5,
+    "description": "Athlete lies back and presses the dumbbells into lockout position on the incline bench"
+  },
+  {
+    "file": "2026_10_06_18_18_14_IMG_7168.mp4",
+    "name": "CHEST-SUPPORTED T-BAR ROW",
+    "setup_end_second": 12,
+    "optimal_6_5s_clip_start": 13,
+    "optimal_6_5s_clip_end": 19.5,
+    "description": "Athlete finishes gripping and begins pulling under heavy load on the chest-supported row"
+  },
+  {
+    "file": "2026_10_06_18_31_18_IMG_7171.mp4",
+    "name": "MACHINE CHEST FLY",
+    "setup_end_second": 11,
+    "optimal_6_5s_clip_start": 13,
+    "optimal_6_5s_clip_end": 19.5,
+    "description": "Athlete finishes bringing handles together into starting position and begins the eccentric fly motion of rep 1."
+  },
+  {
+    "file": "2026_10_06_18_52_38_IMG_7202.MP4",
+    "name": "WIDE-GRIP LAT PULLDOWN",
+    "setup_end_second": 5,
+    "optimal_6_5s_clip_start": 6,
+    "optimal_6_5s_clip_end": 12.5,
+    "description": "Athlete finishes seating into position and initiates the first downward pull on the lat pulldown bar."
+  }
+]

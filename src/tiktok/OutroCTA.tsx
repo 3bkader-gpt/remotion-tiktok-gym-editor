@@ -8,22 +8,19 @@ import {
   Easing,
 } from "remotion";
 import { loadFont as loadBebas } from "@remotion/google-fonts/BebasNeue";
-import { loadFont as loadCairo } from "@remotion/google-fonts/Cairo";
+import { CinematicFinishingStack } from "./CinematicFinishingStack";
 
 const { fontFamily: bebasFont } = loadBebas();
-const { fontFamily: cairoFont } = loadCairo("normal", {
-  weights: ["700", "900"],
-  ignoreTooManyRequestsWarning: true,
-});
 
 const WORKOUT_ROUTINE = [
-  "01. T-Bar Row (Lats / Thickness)",
-  "02. Straight-Arm Cable Pulldown",
-  "03. Seated Dragon Machine Row",
-  "04. Rear Delt Cable Crossover",
-  "05. Close-Grip Lat Pulldown",
-  "06. Heavy Dumbbell Shrugs",
-  "07. Cable Crossover Burnout",
+  "01. Incline Dumbbell Bench Press",
+  "02. Chest-Supported T-Bar Row",
+  "03. Machine Chest Fly",
+  "04. Wide-Grip Lat Pulldown",
+  "05. Standing Machine Lateral Raise",
+  "06. Barbell Power Rack Shrug",
+  "07. Cable Straight-Arm Pulldown",
+  "08. Kneeling Cable Crunch Finisher",
 ];
 
 export const OutroCTA: React.FC = () => {
@@ -45,7 +42,10 @@ export const OutroCTA: React.FC = () => {
         overflow: "hidden",
       }}
     >
-      <Audio src={staticFile("sfx/bass_hit.wav")} volume={0.9} />
+      {/* 🔊 Outro Transition Whoosh */}
+      <Audio src={staticFile("sfx/whoosh.wav")} volume={0.4} startFrom={0} />
+
+      <CinematicFinishingStack />
 
       {/* Radial glow */}
       <div
@@ -80,7 +80,7 @@ export const OutroCTA: React.FC = () => {
             marginBottom: 6,
           }}
         >
-          DRAGON'S LAIR // ROUTINE SUMMARY
+          HAMZAWY // ROUTINE SUMMARY
         </div>
 
         <div
@@ -93,7 +93,7 @@ export const OutroCTA: React.FC = () => {
             textShadow: "0 0 30px rgba(255, 69, 0, 0.9)",
           }}
         >
-          FULL PULL DAY PROTOCOL
+          UPPER BODY & CORE PROTOCOL
         </div>
 
         {/* Workout Routine Checklist Box */}
@@ -136,23 +136,22 @@ export const OutroCTA: React.FC = () => {
           ))}
         </div>
 
-        {/* Arabic Call-To-Action Button */}
+        {/* High-Impact Call-To-Action Button */}
         <div
           style={{
             marginTop: 25,
-            fontFamily: cairoFont,
-            fontSize: 36,
-            fontWeight: 900,
+            fontFamily: bebasFont,
+            fontSize: 40,
+            letterSpacing: 3,
             color: "#ffffff",
-            direction: "rtl",
             background: "linear-gradient(90deg, #ff4500, #ff8c00)",
-            padding: "12px 38px",
+            padding: "12px 42px",
             borderRadius: 20,
-            boxShadow: "0 0 30px rgba(255, 69, 0, 0.8)",
+            boxShadow: "0 0 35px rgba(255, 69, 0, 0.85)",
             transform: `scale(${pulse})`,
           }}
         >
-          احفظ التمرينة للتدريب الجاي 💾🔥
+          SAVE FOR YOUR NEXT SESSION 💾🔥
         </div>
 
         <div
@@ -164,7 +163,7 @@ export const OutroCTA: React.FC = () => {
             letterSpacing: 2,
           }}
         >
-          FOLLOW FOR MORE GYM WORKOUTS // @DRAGON.GYM
+          FOLLOW FOR MORE GYM WORKOUTS // @HAMZAWY
         </div>
       </div>
     </AbsoluteFill>

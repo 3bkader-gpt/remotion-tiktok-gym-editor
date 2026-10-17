@@ -12,7 +12,7 @@ if (!API_KEY && fs.existsSync('.env')) {
 }
 const MODELS = ['gemini-3.7-flash', 'gemini-3.5-flash', 'gemini-flash-latest', 'gemini-3.8-flash'];
 
-async function analyzeVideo(videoFilename, fps = 1) {
+async function analyzeVideo(videoFilename, fps = 3) {
   console.log(`\n========================================`);
   console.log(`🎬 Processing Video: ${videoFilename}`);
   console.log(`========================================`);
@@ -25,7 +25,7 @@ async function analyzeVideo(videoFilename, fps = 1) {
   }
   fs.mkdirSync(tempFramesDir, { recursive: true });
 
-  // 1. Slice video into 1 frame per second
+  // 1. Slice video into 3 frames per second (~333ms per frame)
   console.log(`📸 Slicing video into ${fps} frame(s) per second...`);
   const outPattern = path.join(tempFramesDir, 'frame_%04d.jpg');
   const ffmpegCmd = `npx remotion ffmpeg -y -i "${videoPath}" -r ${fps} -vf "scale=480:-2" "${outPattern}"`;
@@ -35,54 +35,14 @@ async function analyzeVideo(videoFilename, fps = 1) {
   console.log(`✅ Extracted ${frameFiles.length} frames.`);
 
   // 2. Build multi-modal request parts
-  console.log(`🧠 Uploading ${frameFiles.length} frames to Gemini 3.8 Flash for granular analysis...`);
+  console.log(`🧠 Uploading ${frameFiles.length} frames to Gemini 3.7 Flash for granular biomechanical analysis...`);
 
-  const parts = [
-    {
-      text: `You are an expert video editor and fitness coach analyzing a gym video for a dynamic TikTok/Reels edit.
-Attached are ${frameFiles.length} sequential frames extracted at 1 frame per second (1 FPS).
-Frame frame_0001 corresponds to second 1 (00:01), frame_0002 corresponds to second 2 (00:02), and so on.
+  const promptTemplatePath = path.resolve('prompts', 'gemini_biomechanics_analysis_prompt.md');
+  let promptText = fs.readFileSync(promptTemplatePath, 'utf-8');
+  promptText = promptText.replace(/\$\{filename\}/g, videoFilename);
+  promptText += `\n\n### 📹 Current File Data:\n- Video File: ${videoFilename}\n- Total Frames: ${frameFiles.length}\n- Sampling Rate: ${fps} FPS (1 frame every ${(1 / fps).toFixed(3)}s)\nAnalyze and output the strict JSON matching the schema above:`;
 
-Analyze the video across time and return a STRICT JSON object with this exact structure:
-{
-  "video_summary": "1-2 sentence overview of the video",
-  "lifter_profile": {
-    "primary_lifter_appearance": "details of clothing, physique, hair",
-    "other_people_visible": ["list any other people who appear, what they wear, and at what timestamps"]
-  },
-  "exercise_details": {
-    "name_english": "Standard exercise name",
-    "name_arabic": "Arabic name with gym dialect",
-    "machine_or_equipment": "Description of machine or weights",
-    "targeted_muscle": "Primary muscle group in English & Arabic"
-  },
-  "timeline": {
-    "setup_phase": { "start_seconds": 0, "end_seconds": 0, "description": "walking in, adjusting weight, setting up" },
-    "workout_set": {
-      "start_seconds": 0,
-      "end_seconds": 0,
-      "total_reps_completed": 0,
-      "reps": [
-        {
-          "rep_number": 1,
-          "start_seconds": 0,
-          "peak_contraction_seconds": 0,
-          "end_seconds": 0,
-          "quality": "clean / struggle / partial"
-        }
-      ]
-    },
-    "exit_phase": { "start_seconds": 0, "end_seconds": 0, "description": "dropping weight, resting" }
-  },
-  "editing_recommendation": {
-    "best_clip_start_seconds": 0,
-    "best_clip_end_seconds": 0,
-    "recommended_duration_seconds": 0,
-    "notes_for_editor": "Specific advice on where the peak pump/action is"
-  }
-}`
-    }
-  ];
+  const parts = [{ text: promptText }];
 
   // Add all frame images as inlineData
   for (let i = 0; i < frameFiles.length; i++) {
@@ -135,13 +95,20 @@ Analyze the video across time and return a STRICT JSON object with this exact st
     console.log(`\n🎉 ANALYSIS COMPLETE for ${videoFilename}!`);
     console.log(`📄 Saved to: ${reportPath}`);
     console.log(`📊 Summary:`);
-    console.log(`- Exercise: ${parsed.exercise_details.name_english} (${parsed.exercise_details.name_arabic})`);
-    console.log(`- Total Reps: ${parsed.timeline.workout_set.total_reps_completed}`);
-    console.log(`- Set Active Interval: ${parsed.timeline.workout_set.start_seconds}s ➜ ${parsed.timeline.workout_set.end_seconds}s`);
-    console.log(`- Recommended Highlight: ${parsed.editing_recommendation.best_clip_start_seconds}s ➜ ${parsed.editing_recommendation.best_clip_end_seconds}s`);
-    console.log(`- Lifter: ${parsed.lifter_profile.primary_lifter_appearance}`);
-    if (parsed.lifter_profile.other_people_visible.length > 0) {
-      console.log(`- Other people: ${parsed.lifter_profile.other_people_visible.join(', ')}`);
+    console.log(`- Exercise: ${parsed.exercise_details?.name || parsed.exercise_details?.name_english}`);
+    console.log(`- Muscle: ${parsed.exercise_details?.primary_muscle || parsed.exercise_details?.targeted_muscle}`);
+    if (parsed.auto_framing) {
+      console.log(`- Auto-Framing: Center (${parsed.auto_framing.focal_center_x_percent}%, ${parsed.auto_framing.focal_center_y_percent}%) | Drift: ${parsed.auto_framing.lifter_drift} | Scale: ${parsed.auto_framing.recommended_camera_scale}`);
+    }
+    const reps = parsed.timeline?.active_workout_set?.total_reps_completed ?? parsed.timeline?.workout_set?.total_reps_completed;
+    console.log(`- Total Reps: ${reps}`);
+    const activeInterval = parsed.timeline?.active_workout_set || parsed.timeline?.workout_set;
+    if (activeInterval) {
+      console.log(`- Set Active Interval: ${activeInterval.start_seconds}s ➜ ${activeInterval.end_seconds}s`);
+    }
+    const recommendation = parsed.editing_recommendation;
+    if (recommendation) {
+      console.log(`- Recommended Highlight: ${recommendation.trim_start_seconds ?? recommendation.best_clip_start_seconds}s ➜ ${recommendation.trim_end_seconds ?? recommendation.best_clip_end_seconds}s`);
     }
     return parsed;
   } else {
@@ -150,5 +117,7 @@ Analyze the video across time and return a STRICT JSON object with this exact st
   }
 }
 
-// Test on IMG_7071 (28s video = 28 frames)
-analyzeVideo('2026_10_04_21_23_24_IMG_7071.MOV', 1);
+// Accept video from CLI argument or default
+const targetVideo = process.argv[2] || '2026_10_06_19_20_02_IMG_7214.MP4';
+analyzeVideo(targetVideo, 3);
+
