@@ -7,6 +7,7 @@ import {
   TOTAL_FLOATING_FRAMES,
 } from "./tiktok-floating/TikTokGymFloating";
 import { FloatingWorkoutHUD } from "./tiktok-floating/FloatingWorkoutHUD";
+import { Floating3DChromeText } from "./tiktok-floating/Floating3DChromeText";
 import { FloatingIntroHook } from "./tiktok-floating/FloatingIntroHook";
 import { FloatingOutroCTA } from "./tiktok-floating/FloatingOutroCTA";
 import { SequencedMontage, SingleVideoPlayer, VIDEO_FILES } from "./VideoEditor";
@@ -22,6 +23,10 @@ const FloatingHUDPreview: React.FC = () => (
     currentRep={2}
     totalReps={4}
   />
+);
+
+const Floating3DPreview: React.FC = () => (
+  <Floating3DChromeText titleLines={["INCLINE", "DUMBBELL", "PRESS"]} />
 );
 
 export const RemotionRoot: React.FC = () => {
@@ -99,6 +104,14 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="Floating-Workout-HUD-Preview"
           component={FloatingHUDPreview}
+          durationInFrames={120}
+          fps={30}
+          width={1080}
+          height={1920}
+        />
+        <Composition
+          id="Floating-3D-Chrome-Text-Preview"
+          component={Floating3DPreview}
           durationInFrames={120}
           fps={30}
           width={1080}

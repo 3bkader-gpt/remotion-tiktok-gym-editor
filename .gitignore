@@ -61,6 +61,13 @@ public/time_check/
 Thumbs.db
 ehthumbs.db
 
+# AI Model Weights & Checkpoints
+*.pt
+*.pth
+*.bin
+*.onnx
+*.engine
+
 # Scratch and log files
 *.log
 npm-debug.log*
@@ -74,3 +81,5 @@ run_*.js
 scan_*.js
 scene_*.js
 scratch_*.js
+scratch_*.png
+test_*.py
